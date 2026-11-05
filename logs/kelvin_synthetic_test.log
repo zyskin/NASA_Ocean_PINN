@@ -1,0 +1,38 @@
+device = cpu
+beta   = 2.289158687804e-11 1/(m s)
+
+Analytic Kelvin-wave residual test
+Ru   : max|R| = 5.684e-14, RMS = 9.977e-15
+Rv   : max|R| = 5.684e-14, RMS = 1.506e-14
+Rphi : max|R| = 2.274e-13, RMS = 2.657e-14
+
+Adam training: Phi observations only
+    0  loss=1.154e+00  data=2.060e-01  pde=9.483e-01  c=1.002001 m/s
+  250  loss=1.164e-01  data=1.016e-01  pde=1.476e-02  c=0.863620 m/s
+  500  loss=2.524e-02  data=1.823e-02  pde=7.006e-03  c=2.764783 m/s
+  750  loss=1.331e-02  data=1.038e-02  pde=2.918e-03  c=2.653960 m/s
+ 1000  loss=7.676e-03  data=5.360e-03  pde=2.308e-03  c=2.622145 m/s
+ 1250  loss=3.762e-03  data=2.380e-03  pde=1.372e-03  c=2.592884 m/s
+ 1500  loss=2.304e-03  data=1.220e-03  pde=1.075e-03  c=2.566406 m/s
+ 1750  loss=2.730e-03  data=7.680e-04  pde=1.952e-03  c=2.548614 m/s
+ 2000  loss=1.422e-03  data=5.586e-04  pde=8.540e-04  c=2.539373 m/s
+ 2250  loss=1.112e-03  data=4.490e-04  pde=6.536e-04  c=2.533261 m/s
+ 2500  loss=1.079e-03  data=4.255e-04  pde=6.433e-04  c=2.528679 m/s
+Adam elapsed: 21.79 s
+
+L-BFGS refinement
+L-BFGS function calls: 52
+L-BFGS elapsed: 0.58 s
+
+Held-out diagnostics
+c true                  = 2.500000 m/s
+c inferred              = 2.502130 m/s
+relative c error         = 0.0852 %
+equivalent depth true    = 0.637105 m
+equivalent depth inferred= 0.638191 m
+Phi relative RMSE        = 4.1931 %
+u relative RMSE          = 4.4509 %
+v RMSE                   = 2.316545e-04 m/s
+Ru RMS                   = 2.863413e-09
+Rv RMS                   = 3.032012e-08
+Rphi RMS                 = 6.717647e-09

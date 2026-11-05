@@ -1,0 +1,27 @@
+================================================================
+Analytic equatorial-wave PDE verification (float64)
+================================================================
+
+[1] Kelvin wave (eastward, v=0):
+    Ru RMS=2.052e-23  Rv RMS=2.822e-23  Rphi RMS=5.481e-23
+    phase speed = +2.500 m/s (eastward by construction)
+
+[2] Matsuno Rossby mode n=1:
+    omega=-6.416289e-07 rad/s  phase speed c_ph=omega/k=-0.8169 m/s
+    Ru RMS=4.706e-23  Rv RMS=3.070e-22  Rphi RMS=9.568e-23
+    westward propagation: True  (Rossby waves go west)
+    |c_ph|=0.8169 m/s  (long-Rossby limit c/(2n+1)=0.8333)
+
+[3] Matsuno n=1 eastward-gravity root (sanity):
+    omega=1.3558e-05  c_ph=+17.263 m/s  maxRMS=8.163e-22
+
+[4] Dispersion cubic roots (n=1): ['-1.292e-05', '-6.416e-07', '1.356e-05']
+    |cubic residual| = ['1.5e-31', '2.5e-32', '1.4e-30']
+
+================================================================
+RESULT: ALL PASS
+  Kelvin PDE residual ~0 : True
+  Rossby PDE residual ~0 : True
+  Rossby westward        : True
+  Gravity root PDE ~0    : True
+================================================================

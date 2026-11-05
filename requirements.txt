@@ -1,0 +1,14 @@
+# Equatorial shallow-water PINN + NASA ocean data study
+# Versions are those verified in development (2026-11); earlier/later minor
+# versions generally work. For CPU-only torch use the CPU wheel index.
+numpy>=1.24
+scipy>=1.10
+xarray>=2023.1
+netCDF4>=1.6
+h5netcdf>=1.1
+dask>=2023.1
+matplotlib>=3.6
+torch>=2.1
+earthaccess>=0.9
+# optional, for cloud/subset access to some PO.DAAC collections:
+# harmony-py>=0.4

@@ -1,0 +1,12 @@
+product_key,short_name,variable,units,status,bbox_WSEN,start,stop,spatial_res_lon_deg,spatial_res_lat_deg,temporal_res,n_time,query_date,files
+ssh,NASA_SSH_REF_SIMPLE_GRID_V1,ssha,m,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_ssh.nc
+oscar,OSCAR_L4_OC_FINAL_V2.0,u,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-29,0.25,0.25,5D,110,2026-11-05,surrogate_oscar.nc
+oscar,OSCAR_L4_OC_FINAL_V2.0,v,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-29,0.25,0.25,5D,110,2026-11-05,surrogate_oscar.nc
+truth,(analytic),u,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_truth.nc
+truth,(analytic),v,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_truth.nc
+truth,(analytic),eta,m,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_truth.nc
+ssh,NASA_SSH_REF_SIMPLE_GRID_V1,ssha,m,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,~0.5,~0.5,7D,,2026-11-05,(run src/build_dataset.py)
+oscar,OSCAR_L4_OC_FINAL_V2.0,u;v;ug;vg,m/s,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,0.25,0.25,5D,,2026-11-05,(run src/build_dataset.py)
+sst,MUR-JPL-L4-GLOB-v4.1,analysed_sst,K,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,0.01,0.01,1D,,2026-11-05,(run src/build_dataset.py)
+sss,SMAP_JPL_L3_SSS_CAP_8DAY-RUNNINGMEAN_V5,smap_sss,PSU,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,0.25,0.25,8D,,2026-11-05,(run src/build_dataset.py)
+swot,SWOT_L2_LR_SSH_BASIC_D,ssha_karin;ssh_karin_qual,m,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,swath,swath,~21D repeat,,2026-11-05,(run src/build_dataset.py)

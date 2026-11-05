@@ -1,0 +1,17 @@
+name: nasa-ocean-pinn
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy>=1.24
+  - scipy>=1.10
+  - xarray>=2023.1
+  - netcdf4>=1.6
+  - h5netcdf>=1.1
+  - dask>=2023.1
+  - matplotlib>=3.6
+  - pip
+  - pip:
+      - torch>=2.1
+      - earthaccess>=0.9
+      # - harmony-py>=0.4
