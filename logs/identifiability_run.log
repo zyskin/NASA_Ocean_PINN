@@ -2,3 +2,31 @@
 ==============================================================================
 B6 c ESTIMATOR COMPARISON (true c=2.8, h_e=0.799 m)
 ==============================================================================
+  Kelvin Hovmoller slant-stack : c = +2.797 m/s  (err 0.1%)
+  k-omega Kelvin-ridge fit     : c = +3.110 m/s  (err 11.1%)
+  Rossby-n1 dispersion fit     : c = +2.620 m/s (from westward slant -0.87)
+  PINN (SSH-only, trainable c) : c = +2.808 m/s  (err 0.3%)
+
+======================================================================================
+B4 ROBUSTNESS under degradation (K+R1+R2; true c=2.8):
+======================================================================================
+                 level  slant_c  komega_c  pinn_c pinn_cerr%  u_corr
+                 clean    2.797     3.110   2.760       1.42   0.942
+              noise1cm    2.797     3.111   2.754       1.64   0.925
+          weekly+noise    2.846     3.102   2.706       3.36   0.873
+   weekly+coarse+noise    2.846     3.123   2.705       3.38   0.827
+
+==============================================================================
+B5 IDENTIFIABILITY: inferred c (true=2.8) and velocity corr over random inits
+==============================================================================
+               combination   c_mean   c_std  c_err%  u_corr  v_corr
+/home/user/NASA_Ocean_PINN/src/identifiability.py:202: RuntimeWarning: Mean of empty slice
+  f"{np.nanmean(ucs):7.3f} {np.nanmean(vcs):7.3f}")
+               Kelvin only    2.809   0.003    0.33   1.000     nan
+/home/user/NASA_Ocean_PINN/src/identifiability.py:203: RuntimeWarning: Mean of empty slice
+  rows.append([name, cs.mean(), cs.std(), cerr, np.nanmean(ucs), np.nanmean(vcs),
+           Rossby n=1 only    0.503   0.159   82.04   0.970   0.963
+            Kelvin+Rossby1    2.793   0.026    0.26   0.966   0.905
+    Kelvin+Rossby1+Rossby2    2.738   0.027    2.23   0.944   0.817
+
+Total elapsed 890s

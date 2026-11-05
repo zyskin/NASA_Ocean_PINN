@@ -30,6 +30,20 @@ python3 src/pinn_ssh.py --adam 5000
 echo "== [7] Stage 5: velocity validation vs held-out OSCAR-like =="
 python3 src/validate_velocity.py
 
+echo "== [8] Track B: multimode verification + OSSE + k-omega + modal =="
+python3 tests/matsuno_multimode_test.py
+python3 src/osse_multimode.py
+python3 src/equatorial_spectrum.py
+python3 src/modal_decomposition.py
+
+echo "== [9] Track B: robustness + identifiability + c comparison (slow) =="
+python3 src/identifiability.py
+
+echo "== [10] Track A: coastal operator verification + synthetic PINN PoC =="
+python3 tests/coastal_synthetic_test.py
+python3 src/coastal_data.py || echo "  (NOAA unreachable here -- using synthetic)"
+python3 src/coastal_pinn.py
+
 echo "== DONE. See figures/, models/, logs/, data_processed/ =="
 # To run the identical pipeline on REAL NASA output:
 #   python3 src/analysis.py   --ssh data_processed/nasa_ssh.nc

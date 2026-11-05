@@ -14,7 +14,37 @@ v_t + β y u + Φ_y = 0
 
 The target application is NASA satellite SSH (`NASA_SSH_REF_SIMPLE_GRID_V1`,
 variable `ssha`) over the tropical Pacific, with independent validation against
-OSCAR surface currents, and later MUR SST / SMAP SSS and a SWOT coastal branch.
+OSCAR surface currents, and later MUR SST / SMAP SSS. A second **coastal branch**
+(New York Bight) targets NOAA/IOOS HF-radar currents + CO-OPS water levels +
+ETOPO bathymetry. A third strand **deepens the equatorial wave physics**
+(k-ω spectra, multi-mode decomposition, identifiability).
+
+---
+
+## STATUS TABLE
+
+| Component | Status | Evidence |
+|---|---|---|
+| Equatorial PDE signs/scales + Kelvin analytic | **VERIFIED (math)** | residuals ~1e-22 (float64) |
+| Kelvin inverse PINN (synthetic) | **VERIFIED SYNTHETIC/OSSE** | c err 0.09% |
+| Matsuno Rossby n=1,2 + IG roots | **VERIFIED (math)** | residuals ~1e-21; `tests/matsuno_multimode_test.py` |
+| Equatorial SSH→(u,v,c) PINN | **VERIFIED SYNTHETIC/OSSE** | c err 4.6%, u corr 0.83 |
+| Conventional slant-stack / k-ω / modal c | **VERIFIED SYNTHETIC/OSSE** | east +2.8–2.9, west Rossby resolved |
+| k-ω spectrum + dispersion overlay (B1) | **VERIFIED SYNTHETIC/OSSE** | peaks on Kelvin/Rossby branches |
+| Meridional modal decomposition (B2) | **VERIFIED SYNTHETIC/OSSE** | modes separated by structure+direction |
+| Degradation robustness / identifiability (B4/B5) | **VERIFIED SYNTHETIC/OSSE** | `logs/robustness_table.csv`, `logs/identifiability_table.csv` |
+| Coastal rotating-SWE operator (var. H, drag) | **VERIFIED (math)** | residuals ~1e-20; `tests/coastal_synthetic_test.py` |
+| Coastal PINN (HF-radar→u,v,η) | **VERIFIED SYNTHETIC/OSSE** | held-out vec corr 1.0; 15× better than interp |
+| NASA SSH/OSCAR/MUR/SMAP/SWOT ingestion | **IMPLEMENTED — DATA ACCESS BLOCKED** | `src/build_dataset.py`; egress blocks `*.earthdata.nasa.gov` |
+| NOAA HF-radar / CO-OPS / ETOPO ingestion | **IMPLEMENTED — DATA ACCESS BLOCKED** | `src/coastal_data.py`; egress blocks `*.noaa.gov` |
+| **Any real-data result** | **NONE YET** | all real endpoints blocked in this sandbox |
+| Tracer coupling (SST/SSS), nonlinear coastal | **PLANNED** | see roadmap |
+
+> **No result in this repository uses real observations.** Every quantitative
+> result is from controlled known-truth synthetic data and validates the
+> *method*. Real NASA/NOAA endpoints are unreachable from this sandbox
+> (egress policy), so the ingestion code is implemented and runnable but has
+> not executed here.
 
 ---
 
@@ -161,6 +191,100 @@ If your environment also blocks NASA hosts, see the note in
 
 ---
 
+## Track A — New York Bight coastal PINN (synthetic PoC; real data blocked)
+
+Real NOAA/IOOS endpoints (HF-radar THREDDS `dods.ndbc.noaa.gov`, CO-OPS
+`api.tidesandcurrents.noaa.gov`, NCEI/ETOPO, CoastWatch ERDDAP) are **all blocked
+by the same egress policy** as NASA in this sandbox. The ingestion code is written
+and runnable where those hosts are reachable (`src/coastal_data.py`,
+`python src/coastal_data.py` for the preflight). Offline, the method is verified:
+
+* **Coastal operator** (`src/coastal_physics.py`): linear rotating shallow-water
+  `u_t - f v + g η_x + r u = 0`, `v_t + f u + g η_y + r v = 0`,
+  `η_t + ∂_x(Hu) + ∂_y(Hv) = 0`, with variable `H(x,y)`, f-plane `f=2Ω sinφ₀`,
+  optional trainable linear drag `r≥0`. `tests/coastal_synthetic_test.py`
+  verifies the Poincaré plane-wave residuals (~1e-20), the drag-term wiring, and
+  the variable-H flux divergence — all at machine precision.
+* **Coastal PINN PoC** (`src/coastal_pinn.py`): observe velocity `(u,v)` only;
+  infer the **unobserved** free surface `η` from velocity + physics (the coastal
+  analogue of inferring velocity from SSH). On a synthetic two-wave M2 tidal
+  field with HF-radar-like coverage + noise, spatial/temporal holdout gives PINN
+  `u,v` RMSE ~0.0015 m/s and vector correlation ~1.0, **~15× better than linear
+  space-time interpolation**, and inferred η RMSE ~0.008 m.
+
+**Observation-model caveat (important):** HF radar measures **near-surface**
+(~upper 0.5 m) velocity; the shallow-water equations describe **depth-averaged**
+velocity. These are not the same quantity. For a short, tide-dominated interval
+the near-surface current is used as a barotropic proxy; stronger claims are not
+made. The synthetic PoC is also idealized (exact PDE solution, smooth tidal
+field), so near-perfect recovery is expected — real HF-radar (non-tidal flow,
+baroclinicity, gaps) will be harder. NOAA data must never be labelled NASA data.
+
+Region (search box, tighten after coverage inspection): −74.6…−72.5°E,
+39.0…41.2°N; decision subregions (Bight / Sandy Hook entrance / Lower Bay / inner
+harbour) and coverage fractions are computed in `src/coastal_data.py`.
+
+## Track B — deeper equatorial wave physics (synthetic/OSSE)
+
+* **B1 k-ω spectrum** (`src/equatorial_spectrum.py`): Wheeler-Kiladis
+  symmetric/antisymmetric wavenumber-frequency power with the exact Matsuno
+  dispersion curves overlaid and a runtime sign-convention self-check. The
+  Kelvin power lies on `ω=ck`; Rossby power on the westward branches
+  (`figures/komega_sym_multimode.png`, `komega_anti_multimode.png`).
+* **B2 modal decomposition** (`src/modal_decomposition.py`): least-squares
+  projection onto Hermite meridional modes `ψ_m(y/L)`. ψ₀ → eastward Kelvin
+  (77% variance), ψ₂ → westward Rossby n=1, ψ₁/ψ₃ → antisymmetric westward
+  Rossby n=2 — modes separated by **structure + direction**, not appearance.
+* **B3 multimode verification** (`tests/matsuno_multimode_test.py`): Rossby
+  n=1,2 and eastward/westward inertia-gravity roots satisfy all three PDEs at
+  ~1e-21; table of `n,k,ω,c_ph,c_g` with group velocity from finite differences
+  in k (`logs/matsuno_multimode_table.csv`).
+* **B4 robustness** (`src/identifiability.py`): slant-stack, k-ω, and PINN `c`
+  under clean → noise → weekly → weekly+coarse sampling (`logs/robustness_table.csv`).
+* **B5 identifiability** (`src/identifiability.py`): inferred `c` distribution
+  over random inits for Kelvin-only / Rossby-only / K+R1 / K+R1+R2
+  (`logs/identifiability_table.csv`); failures reported, not hidden.
+* **B6 c comparison**: `c_PINN` vs Kelvin Hovmöller slant-stack vs k-ω ridge vs
+  Rossby-dispersion inversion (`logs/c_comparison_table.csv`). The slant-stack
+  and PINN agree to ~2-5%; the single-bin k-ω peak is coarser (~10%).
+
+Run all Track B: `python src/osse_multimode.py && python src/equatorial_spectrum.py
+&& python src/modal_decomposition.py && python tests/matsuno_multimode_test.py
+&& python src/identifiability.py`.
+
+### Track B key findings (synthetic)
+
+**B6 — c estimators agree (true c = 2.8, K+R1):**
+
+| method | c [m/s] | error |
+|---|---|---|
+| Kelvin Hovmöller slant-stack | 2.797 | 0.1% |
+| PINN (SSH-only, trainable c) | 2.808 | 0.3% |
+| Rossby-n1 dispersion inversion | 2.620 | 6.4% |
+| k-ω single-bin Kelvin peak | 3.110 | 11% (coarse: FFT grid) |
+
+**B4 — robustness under satellite-like degradation (K+R1+R2):** PINN c stays
+within ~3.4% from clean → +1 cm noise → weekly → weekly+coarse; held-out
+velocity correlation degrades gracefully 0.94 → 0.83. Slant-stack c 2.80 → 2.85.
+
+**B5 — identifiability (inferred c over random inits, true 2.8):**
+
+| modes present | c mean ± std | error | u corr | v corr |
+|---|---|---|---|---|
+| Kelvin only | 2.809 ± 0.003 | 0.3% | 1.000 | — (v≡0) |
+| **Rossby n=1 only** | **0.503 ± 0.159** | **82%** | 0.970 | 0.963 |
+| Kelvin + Rossby n=1 | 2.793 ± 0.026 | 0.3% | 0.966 | 0.905 |
+| Kelvin + Rossby n=1 + n=2 | 2.738 ± 0.027 | 2.2% | 0.944 | 0.817 |
+
+**Interpretation:** the gravity-wave speed `c` is well-determined from SSH alone
+**only when a Kelvin component is present** (Kelvin propagates at exactly `c`).
+A pure Rossby field does **not** constrain `c` (82% error, large init-variance),
+because Rossby phase speed depends on `c` only weakly — yet the PINN still
+reconstructs the Rossby velocity field well (corr ~0.96). This non-identifiable
+case is reported, not hidden.
+
+---
+
 ## Repository layout
 
 ```
@@ -175,10 +299,21 @@ src/
   pinn_ssh.py          Stage 4/5: SSH-only PINN + velocity validation
   validate_velocity.py Stage 5 figures
   write_surrogate_manifest.py
+  # Track B (equatorial wave physics)
+  osse_multimode.py    multi-mode OSSE (Kelvin+Rossby n1,n2) + degradation
+  equatorial_spectrum.py  B1 k-ω spectrum + dispersion overlay
+  modal_decomposition.py  B2 Hermite meridional-mode decomposition
+  identifiability.py   B4/B5/B6 robustness, identifiability, c comparison
+  # Track A (coastal)
+  coastal_physics.py   rotating SWE operator + CoastalPINN (var H, drag)
+  coastal_data.py      NOAA HF-radar/CO-OPS/ETOPO ingestion (needs NOAA access)
+  coastal_pinn.py      synthetic coastal PINN PoC (HF-radar→u,v,η)
 tests/
   equatorial_kelvin_pinn_test.py   given reference (math + synthetic inverse)
-  rossby_analytic_test.py          Rossby/Kelvin PDE verification (Stage 6)
-data_processed/        surrogate_*.nc, pinn_*_inferred.nc  (and nasa_*.nc on real runs)
+  rossby_analytic_test.py          Rossby/Kelvin PDE verification
+  matsuno_multimode_test.py        B3 Rossby n1,2 + IG verification
+  coastal_synthetic_test.py        coastal operator verification
+data_processed/        surrogate_*.nc, osse_multimode_*.nc, pinn/coastal_*_inferred.nc
 models/                PINN checkpoints (pre/post L-BFGS)
 logs/                  run logs + training-history CSVs + speed estimates
 figures/               Hovmöller, maps, speed spectrum, velocity validation
@@ -196,12 +331,27 @@ requirements.txt / environment.yml / run_all.sh
 | SSS (auxiliary, Stage 7) | `SMAP_JPL_L3_SSS_CAP_8DAY-RUNNINGMEAN_V5` | `smap_sss` |
 | Coastal high-res (Stage 8) | `SWOT_L2_LR_SSH_BASIC_D` | SSH/SSHA, quality, dist-to-coast |
 
-## Roadmap (remaining stages)
+## Coastal (NOAA/IOOS) data sources — Track A
 
-* **Stage 7** — collocate MUR SST / SMAP SSS with SSH & inferred currents;
-  correlations first, tracer equations (with non-zero surface fluxes) only after.
-* **Stage 8** — New York Bight (75.5–71°W, 38.5–41.5°N): SWOT coverage check,
-  MUR SST, variable depth `H(x,y)`, tides/wind/open boundaries from NOAA/IOOS;
-  start linear, stay NASA-centred.
+| Role | Source | Key variables |
+|---|---|---|
+| Surface currents | HF-radar THREDDS `hfradar_usegc_1km` (1 km hourly) | `u,v,hdop,number_of_sites` |
+| Water level | NOAA CO-OPS (Battery 8518750, Sandy Hook 8531680) | water_level (datum recorded) |
+| Bathymetry | NOAA NCEI ETOPO 2022 | elevation → `H(x,y)>0`, land mask |
+| Coastal SSH (later) | NASA `SWOT_L2_LR_SSH_BASIC_D` | SSH/SSHA, quality, dist-to-coast |
 
-See the per-stage notes and `tests/` for what has been independently verified.
+## Roadmap (remaining)
+
+* **Coastal, real data** — run `src/coastal_data.py` + `src/coastal_pinn.py --hfradar`
+  where NOAA is reachable; inspect actual NY coverage, pick a high-coverage
+  interval, add CO-OPS η anchors, ETOPO `H(x,y)`, and a no-normal-flow coastline
+  condition. Then add SWOT/MUR where NASA is reachable.
+* **Equatorial, real data** — run `src/build_dataset.py` where NASA is reachable;
+  apply the verified k-ω / modal / PINN pipeline to real SSH + OSCAR.
+* **Tracers (Stage 7)** — collocate MUR SST / SMAP SSS with SSH & inferred
+  currents; correlations first, tracer equations (non-zero surface fluxes) later.
+* **Nonlinear / open boundaries** — only after the linear coastal PoC on real data.
+
+See the STATUS TABLE, the per-stage notes and `tests/` for what is independently
+verified. **No real-data science has been done yet** — all endpoints are blocked
+in this sandbox.
