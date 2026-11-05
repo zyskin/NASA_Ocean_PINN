@@ -1,0 +1,12 @@
+Convention self-check (pure eastward Kelvin, c=2.8):
+  spectral peak at k=9.425e-07, OMEGA=2.889e-06 -> c_ph=+3.065 m/s (expect +2.8)
+
+Loaded /home/user/NASA_Ocean_PINN/data_processed/osse_multimode_clean.nc: field (180, 61, 401) (t,y,x)
+  deformation radius L=350 km; latitude band |y|<=1049 km (41 rows)
+
+Dominant symmetric peaks vs theoretical branches:
+  k=+9.401e-07 OMEGA=+2.963e-06 c_ph=+3.15 -> Kelvin (|dOMEGA|=3.30e-07)
+  k=-9.401e-07 OMEGA=-2.963e-06 c_ph=+3.15 -> Kelvin (|dOMEGA|=3.30e-07)
+  k=-9.401e-07 OMEGA=+6.734e-07 c_ph=-0.72 -> Rossby n=2 (|dOMEGA|=1.58e-07)
+
+Saved figures/komega_sym_multimode.png and komega_anti_multimode.png

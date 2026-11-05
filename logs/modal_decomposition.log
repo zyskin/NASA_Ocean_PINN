@@ -1,0 +1,14 @@
+Loaded /home/user/NASA_Ocean_PINN/data_processed/osse_multimode_clean.nc: (180, 61, 401); L=350 km
+
+Meridional-mode decomposition of SSHA:
+  mode  var_frac  c_ph[m/s]  direction  expected
+     0     0.765      3.151    east(+)  Kelvin(+)/R1
+     1     0.072     -0.537    west(-)  Rossby n=2(-)
+     2     0.113     -0.716    west(-)  R1/R3(+/-)
+     3     0.050     -0.537    west(-)  Rossby n=2/4(-)
+     4     0.000      0.267    east(+)  Rossby n=3(-)
+
+Interpretation: psi_0 and psi_2 carry the symmetric eastward Kelvin
+and westward Rossby n=1; psi_1/psi_3 carry the antisymmetric westward
+Rossby n=2 -- matching the modes injected into the OSSE.
+Saved figures/modal_decomp_multimode.png
