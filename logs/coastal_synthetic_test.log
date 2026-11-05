@@ -1,0 +1,20 @@
+================================================================
+Coastal shallow-water operator verification (float64)
+================================================================
+phi0=40.0 deg  f=9.375e-05 1/s  H=30.0 m  omega=1.622e-03 rad/s
+inertial period 2pi/f = 18.62 h  wave period 2pi/omega = 1.08 h
+
+[1] Poincare plane wave, r=0:
+    Ru RMS=3.238e-20  Rv RMS=4.344e-20  Reta RMS=1.222e-19
+
+[2] Drag term r=3.0e-05: residual - r*u RMS=3.238e-20, - r*v RMS=4.344e-20
+
+[3] Variable-H continuity operator vs analytic divergence:
+    RMS error = 5.414e-20  (scale 4.530e-04)
+
+================================================================
+RESULT: ALL PASS
+  [1] Poincare residuals ~0 : True
+  [2] drag term wiring      : True
+  [3] variable-H divergence : True
+================================================================

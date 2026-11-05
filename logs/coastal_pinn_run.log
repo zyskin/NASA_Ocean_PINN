@@ -1,0 +1,29 @@
+Synthetic coastal field: H=25.0 m  f=9.452e-05  grid (41, 41)  nt=72  coverage=0.75
+obs points: 91080  train 63755  holdout 27325
+scales u=0.374 eta=0.702  M2 cycles=5.7 ft=14
+
+Adam (HF-radar u,v + shallow-water PDE):
+    0 tot=6.22e-01 data=5.27e-01 pde=(3.3e-02,2.4e-02,3.8e-02) r=0.00e+00
+  400 tot=1.54e-02 data=1.34e-02 pde=(6.6e-04,3.7e-04,9.3e-04) r=0.00e+00
+  800 tot=1.32e-02 data=1.30e-02 pde=(8.2e-05,7.0e-05,1.1e-04) r=0.00e+00
+ 1200 tot=1.31e-02 data=1.29e-02 pde=(4.5e-05,3.5e-05,6.0e-05) r=0.00e+00
+ 1600 tot=1.30e-02 data=1.29e-02 pde=(2.9e-05,2.1e-05,3.7e-05) r=0.00e+00
+ 2000 tot=1.29e-02 data=1.29e-02 pde=(1.8e-05,1.5e-05,2.3e-05) r=0.00e+00
+ 2400 tot=1.30e-02 data=1.29e-02 pde=(4.8e-05,1.4e-05,4.0e-05) r=0.00e+00
+ 2800 tot=1.29e-02 data=1.29e-02 pde=(2.2e-05,1.1e-05,2.7e-05) r=0.00e+00
+ 3200 tot=1.29e-02 data=1.29e-02 pde=(1.3e-05,9.8e-06,1.5e-05) r=0.00e+00
+ 3600 tot=1.29e-02 data=1.29e-02 pde=(9.0e-06,8.6e-06,1.2e-05) r=0.00e+00
+ 4000 tot=1.30e-02 data=1.29e-02 pde=(2.0e-05,2.0e-05,1.4e-05) r=0.00e+00
+Adam 317.1s
+L-BFGS 29.5s
+
+============================================================
+HELD-OUT validation (points never seen in training)
+  PINN     u: RMSE=0.0014 MAE=0.0011 corr=1.000
+  PINN     v: RMSE=0.0016 MAE=0.0012 corr=1.000
+  PINN vector correlation = 1.000
+  baseline u (linear interp): RMSE=0.0219 corr=0.994 (on 27324/27325 interpolable)
+  baseline v (linear interp): RMSE=0.0214 corr=0.992
+  inferred eta vs truth (de-meaned): RMSE=0.0081 m corr=1.000
+============================================================
+Saved figures, history, checkpoints and NetCDF.
