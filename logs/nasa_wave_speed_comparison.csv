@@ -1,0 +1,6 @@
+estimate,speed_m_per_s,equivalent_depth_m,note
+slant-stack (east),1.499,0.229,Radon eastward peak
+slant-stack (west),-0.681,,Radon westward peak
+k-omega (east),1.623,0.268,power-weighted eastward
+k-omega (west),-0.778,,power-weighted westward
+PINN effective c,0.834,0.071,single effective gravity-wave speed

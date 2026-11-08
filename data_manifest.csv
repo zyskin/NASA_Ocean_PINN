@@ -1,12 +1,8 @@
-product_key,short_name,variable,units,status,bbox_WSEN,start,stop,spatial_res_lon_deg,spatial_res_lat_deg,temporal_res,n_time,query_date,files
-ssh,NASA_SSH_REF_SIMPLE_GRID_V1,ssha,m,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_ssh.nc
-oscar,OSCAR_L4_OC_FINAL_V2.0,u,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-29,0.25,0.25,5D,110,2026-11-05,surrogate_oscar.nc
-oscar,OSCAR_L4_OC_FINAL_V2.0,v,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-29,0.25,0.25,5D,110,2026-11-05,surrogate_oscar.nc
-truth,(analytic),u,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_truth.nc
-truth,(analytic),v,m/s,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_truth.nc
-truth,(analytic),eta,m,SYNTHETIC OSSE surrogate (NOT NASA data),"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-23,0.5,0.5,7D,78,2026-11-05,surrogate_truth.nc
-ssh,NASA_SSH_REF_SIMPLE_GRID_V1,ssha,m,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,~0.5,~0.5,7D,,2026-11-05,(run src/build_dataset.py)
-oscar,OSCAR_L4_OC_FINAL_V2.0,u;v;ug;vg,m/s,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,0.25,0.25,5D,,2026-11-05,(run src/build_dataset.py)
-sst,MUR-JPL-L4-GLOB-v4.1,analysed_sst,K,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,0.01,0.01,1D,,2026-11-05,(run src/build_dataset.py)
-sss,SMAP_JPL_L3_SSS_CAP_8DAY-RUNNINGMEAN_V5,smap_sss,PSU,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,0.25,0.25,8D,,2026-11-05,(run src/build_dataset.py)
-swot,SWOT_L2_LR_SSH_BASIC_D,ssha_karin;ssh_karin_qual,m,REAL NASA product -- pending Earthdata access,"[-170.0, -8.0, -100.0, 8.0]",2015-01-01,2016-06-30,swath,swath,~21D repeat,,2026-11-05,(run src/build_dataset.py)
+category,file,source_product,variables,synthetic,bbox_WSEN,start,stop,n_time,spatial_res_deg,temporal_res,units,note
+REAL_NASA,data_processed/nasa_ssh.nc,NASA_SSH_REF_SIMPLE_GRID_V1,ssha,0,"[-170,-8,-100,8]",2014-12-29,2016-07-04,80,0.5,7D,m,"Gridded SSHA, tropical Pacific; 80 weekly granules actually downloaded via earthaccess (PO.DAAC Cumulus OPS)"
+REAL_NASA,data_processed/nasa_oscar.nc,OSCAR_L4_OC_FINAL_V2.0,"u,v,ug,vg",0,"[-170,-8,-100,8]",2015-01-01,2016-06-30,79,0.25,~7D,m/s,"Surface currents (total u,v and geostrophic ug,vg); daily product subsampled to weekly for cost; INDEPENDENT comparison only, NOT used in PINN training"
+REAL_NASA_DERIVED,data_processed/pinn_nasa_inferred.nc,derived_from:NASA_SSH_REF_SIMPLE_GRID_V1,"u_pinn,v_pinn,eta_pinn",0,"[-170,-8,-100,8]",2014-12-29,2016-07-04,80,0.5,7D,"m/s,m","PINN-inferred velocity & SSH from real NASA SSHA anomaly (SSH-only training); c_eff=0.834 m/s, h_e=0.071 m"
+SYNTHETIC_OSSE,data_processed/surrogate_ssh.nc,OSSE_Kelvin+Rossby,ssha,1,"[-170,-8,-100,8]",2015-01-01,2016-06-23,78,0.5,7D,m,"Known-truth synthetic SSHA (verified analytic Kelvin + Matsuno Rossby); method validation only"
+SYNTHETIC_OSSE,data_processed/surrogate_oscar.nc,OSSE_truth,"u,v",1,"[-170,-8,-100,8]",2015-01-01,2016-06-29,110,0.25,~5D,m/s,"Known-truth synthetic currents for held-out velocity validation"
+SYNTHETIC_OSSE,data_processed/surrogate_truth.nc,OSSE_truth,"u,v,eta",1,"[-170,-8,-100,8]",2015-01-01,2016-06-23,78,0.5,7D,"m/s,m","Full known-truth synthetic fields"
+SYNTHETIC_DERIVED,data_processed/pinn_ssh_inferred.nc,derived_from:OSSE_surrogate,"u_pinn,v_pinn,eta_pinn",1,"[-170,-8,-100,8]",2015-01-01,2016-06-23,78,0.5,7D,"m/s,m","PINN-inferred fields from synthetic surrogate; c_inferred=2.93 m/s vs true 2.8"

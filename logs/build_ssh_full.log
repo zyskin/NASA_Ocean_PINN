@@ -1,0 +1,179 @@
+[ssh] NASA_SSH_REF_SIMPLE_GRID_V1: 80 granules in 2015-01-01..2016-06-30 over (-170.0, -8.0, -100.0, 8.0)
+--- granule 0 ---
+Collection: {'Version': '1', 'ShortName': 'NASA_SSH_REF_SIMPLE_GRID_V1'}
+Spatial coverage: {'HorizontalSpatialDomain': {'Geometry': {'BoundingRectangles': [{'WestBoundingCoordinate': 0.25, 'SouthBoundingCoordinate': -89.75, 'EastBoundingCoordinate': 180, 'NorthBoundingCoordinate': 89.75}, {'WestBoundingCoordinate': -180, 'SouthBoundingCoordinate': -89.75, 'EastBoundingCoordinate': -0.25, 'NorthBoundingCoordinate': 89.75}]}}}
+Temporal coverage: {'RangeDateTime': {'EndingDateTime': '2015-01-03T00:00:00.000Z', 'BeginningDateTime': '2014-12-24T00:00:00.000Z'}}
+Size(MB): 1.0769948959350586
+Data: ['https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/NASA_SSH_REF_SIMPLE_GRID_V1/NASA-SSH_alt_ref_simple_grid_v1_20141229.nc']
+--- granule 1 ---
+Collection: {'Version': '1', 'ShortName': 'NASA_SSH_REF_SIMPLE_GRID_V1'}
+Spatial coverage: {'HorizontalSpatialDomain': {'Geometry': {'BoundingRectangles': [{'WestBoundingCoordinate': 0.25, 'SouthBoundingCoordinate': -89.75, 'EastBoundingCoordinate': 180, 'NorthBoundingCoordinate': 89.75}, {'WestBoundingCoordinate': -180, 'SouthBoundingCoordinate': -89.75, 'EastBoundingCoordinate': -0.25, 'NorthBoundingCoordinate': 89.75}]}}}
+Temporal coverage: {'RangeDateTime': {'EndingDateTime': '2015-01-10T00:00:00.000Z', 'BeginningDateTime': '2014-12-31T00:00:00.000Z'}}
+Size(MB): 1.079117774963379
+Data: ['https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/NASA_SSH_REF_SIMPLE_GRID_V1/NASA-SSH_alt_ref_simple_grid_v1_20150105.nc']
+[ssh] downloading 80 granule(s) -> /home/user/NASA_Ocean_PINN/data_raw/ssh
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+/usr/local/lib/python3.13/site-packages/xarray/structure/concat.py:674: UserWarning: No index created for dimension time because variable time is not a coordinate. To create an index for time, please first call `.set_coords('time')` on this object.
+  ds.expand_dims(dim_name, create_index_for_new_dim=create_index_for_new_dim)
+Saved /home/user/NASA_Ocean_PINN/data_processed/nasa_ssh.nc  dims={'time': 80, 'latitude': 32, 'longitude': 140}
+Wrote /home/user/NASA_Ocean_PINN/data_manifest.csv (1 rows)
+
+Done. Now run:  python src/analysis.py --ssh data_processed/nasa_ssh.nc
+           and:  python src/pinn_ssh.py --ssh data_processed/nasa_ssh.nc --oscar data_processed/nasa_oscar.nc --tag nasa

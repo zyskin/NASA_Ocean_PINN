@@ -1,0 +1,26 @@
+quantity,value,unit,note
+c_effective,0.8343798518180847,m/s,PINN inferred gravity-wave speed
+equivalent_depth,0.07096735342711202,m,h_e = c^2/g
+ssh_train_rmse,0.01349790385680261,m,in-sample
+ssh_train_corr,0.9875214505124791,,in-sample
+ssh_heldout_rmse,0.02120609386471478,m,held-out time snapshots
+ssh_heldout_mae,0.016458593355087956,m,held-out
+ssh_heldout_corr,0.970803175200394,,held-out
+u_corr_vs_total_anom,0.7813033390406635,,OSCAR total_anom
+v_corr_vs_total_anom,0.07660675688595708,,OSCAR total_anom
+u_rmse_vs_total_anom,0.17783826654600896,m/s,OSCAR total_anom
+v_rmse_vs_total_anom,0.12578921250621147,m/s,OSCAR total_anom
+speed_rmse_vs_total_anom,0.1608049893768778,m/s,OSCAR total_anom
+dir_mae_vs_total_anom,42.7176814334029,deg,OSCAR total_anom
+u_corr_vs_geostrophic_anom,0.8412875251200047,,OSCAR geostrophic_anom
+v_corr_vs_geostrophic_anom,0.18738201660105755,,OSCAR geostrophic_anom
+u_rmse_vs_geostrophic_anom,0.15557395715955058,m/s,OSCAR geostrophic_anom
+v_rmse_vs_geostrophic_anom,0.11872442810445459,m/s,OSCAR geostrophic_anom
+speed_rmse_vs_geostrophic_anom,0.14926221234241405,m/s,OSCAR geostrophic_anom
+dir_mae_vs_geostrophic_anom,35.61818195818062,deg,OSCAR geostrophic_anom
+u_corr_vs_total_full,0.650372863789314,,OSCAR total_full
+v_corr_vs_total_full,0.07715945341919248,,OSCAR total_full
+u_rmse_vs_total_full,0.27882559605238666,m/s,OSCAR total_full
+v_rmse_vs_total_full,0.13544736652876152,m/s,OSCAR total_full
+speed_rmse_vs_total_full,0.24781004514625282,m/s,OSCAR total_full
+dir_mae_vs_total_full,57.452420948003066,deg,OSCAR total_full

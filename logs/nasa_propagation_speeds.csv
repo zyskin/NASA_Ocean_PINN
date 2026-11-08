@@ -1,0 +1,4 @@
+method,speed_m_per_s,equivalent_depth_m,note
+slant_stack_east,1.4987341772151899,0.22897085973016226,eastward (Kelvin-like)
+slant_stack_west,-0.6810126582278482,,westward (Rossby-like)
+xcorr_dominant,3.7156599068498513,,dominant signal

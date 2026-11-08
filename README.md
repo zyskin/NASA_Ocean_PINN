@@ -18,31 +18,75 @@ OSCAR surface currents, and later MUR SST / SMAP SSS and a SWOT coastal branch.
 
 ---
 
-## ⚠️ Data status in this checkout
+## Data provenance — read this first
 
-This repository was developed in a sandbox where **all NASA Earthdata hosts are
-blocked by the network egress policy** (`cmr.earthdata.nasa.gov`,
-`urs.earthdata.nasa.gov`, … all return 403 at the proxy) and **no Earthdata
-credentials are present**. The real-data download therefore could not run here.
+Every result below is tagged by how it was obtained. The categories are kept
+strictly separate and are **never** blurred:
 
-To make real scientific progress anyway, the full downstream workflow (Stages
-3–6) was verified on a **controlled Observing System Simulation Experiment
-(OSSE) surrogate**: a *known-truth* field built by superposing the
-**verified analytic** eastward Kelvin wave and westward Matsuno/Rossby wave on
-the exact target grid/region. Every surrogate file and variable is tagged
-`synthetic=1` and named `surrogate_*` — it is **never** presented as a NASA
-observation. This is standard practice: validate the *method* against known
-truth before applying it to data.
+| Category | Meaning | Files |
+|---|---|---|
+| **REAL NASA DATA** | actually downloaded from NASA Earthdata and analysed in this session | `data_processed/nasa_ssh.nc`, `data_processed/nasa_oscar.nc` |
+| **REAL NASA (derived)** | computed by the PINN **from** real NASA SSHA | `data_processed/pinn_nasa_inferred.nc` |
+| **SYNTHETIC / OSSE** | known-truth surrogate for *method* validation; tagged `synthetic=1`, named `surrogate_*` | `data_processed/surrogate_*.nc`, `data_processed/pinn_ssh_inferred.nc` |
+| **REAL NOAA DATA** | — | none yet (NASA ran, so the NOAA HF-radar fallback was not needed) |
+| **IMPLEMENTED BUT BLOCKED** | — | none in this session |
+| **PLANNED** | MUR SST / SMAP SSS collocation; New York coastal SWOT/HF-radar branch | see roadmap |
 
-**The real-data path is complete and runnable** (`src/data_access.py`,
-`src/build_dataset.py`, `src/check_access.py`). It writes NetCDF with the
-*identical schema* to the surrogate, so `analysis.py`, `pinn_ssh.py` and
-`validate_velocity.py` run unchanged on real NASA output — see
-["Running on real NASA data"](#running-on-real-nasa-data).
+**NASA Earthdata access worked in this environment** (`EARTHDATA_TOKEN` present;
+`earthaccess.login(strategy="environment")` authenticated; PO.DAAC Cumulus OPS
+downloads succeeded). The 2015–16 El-Niño tropical-Pacific experiment below is
+on **real satellite observations**, cross-checked against the OSSE surrogate
+that the previous session used to validate the method.
 
 ---
 
-## Verified results (this checkout)
+## REAL NASA DATA results (2015–16 El Niño, tropical Pacific)
+
+* **Region** 170°W–100°W, 8°S–8°N · **SSH** `NASA_SSH_REF_SIMPLE_GRID_V1`
+  (`ssha`, 80 weekly granules, 2014-12-29 → 2016-07-04) ·
+  **Currents** `OSCAR_L4_OC_FINAL_V2.0` (`u,v,ug,vg`, 79 weekly, independent).
+
+| Quantity | Method | Real-data result |
+|---|---|---|
+| Eastward (Kelvin-like) speed | slant-stack / Radon | **+1.50 m/s** |
+| Eastward (Kelvin-like) speed | k–ω power-weighted | **+1.62 m/s** |
+| Westward (Rossby-like) speed | slant-stack / Radon | **−0.68 m/s** |
+| Westward (Rossby-like) speed | k–ω power-weighted | **−0.78 m/s** |
+| **PINN effective `c`** | SSH-only inverse PINN | **0.834 m/s** (h_e = 0.071 m) |
+| Held-out SSHA (unseen snapshots) | PINN | **corr 0.971, RMSE 0.021 m, skill +0.76** |
+| Inferred `u` vs OSCAR geostrophic-anom | **independent** (OSCAR not trained on) | **corr 0.841**, RMSE 0.156 m/s |
+| Inferred `u` vs OSCAR total-anom | independent | corr 0.781, RMSE 0.161 m/s |
+| Inferred `v` vs OSCAR | independent | corr 0.08–0.19 (equatorial `v≈0`, noise-limited) |
+
+**Interpretation — the estimates disagree, and that is physical, not a bug.**
+The conventional methods isolate the *fastest coherent eastward* ridge
+(≈ +1.5–1.6 m/s) and a *westward* Rossby band (≈ −0.7–0.8 m/s) separately. The
+PINN instead fits **one effective `c`** to the whole anomaly field, which over
+this weekly-sampled 2015–16 record is dominated by the slowly-evolving,
+large-scale ENSO signal and long (westward) Rossby waves; the fast eastward
+Kelvin pulses are a weaker, near-Nyquist spectral feature. The single effective
+`c ≈ 0.83 m/s` (h_e ≈ 0.07 m) is therefore **lower than the canonical
+first-baroclinic Kelvin speed (~2.5 m/s, h_e ~ 0.6 m)** — it is a blended
+single-mode summary, *not* a clean first-mode gravity-wave speed. The honest,
+strong result is the **independent velocity reconstruction**: the surface
+zonal-current anomaly recovered from SSH alone tracks OSCAR at corr ≈ 0.84
+(see `figures/nasa_velocity_hovmoller.png`) — the El-Niño eastward current
+anomaly of 2015 and the La-Niña westward anomaly of early 2016 are both
+reproduced without ever showing the PINN any velocity data.
+
+Figures: `figures/nasa_ssha_maps.png`, `nasa_hovmoller_equatorial.png`,
+`nasa_speed_spectrum.png`, `nasa_komega_spectrum.png`,
+`nasa_velocity_scatter.png`, `nasa_velocity_hovmoller.png`,
+`nasa_wave_speed_comparison.png`. Tables: `logs/nasa_propagation_speeds.csv`,
+`nasa_komega_speeds.csv`, `nasa_wave_speed_comparison.csv`,
+`pinn_nasa_summary.csv`.
+
+---
+
+## SYNTHETIC / OSSE method-validation results
+
+These validate the *method* against known truth (they are **not** NASA
+observations); the real-data results are in the section above.
 
 | Stage | What | Result |
 |---|---|---|
@@ -102,29 +146,38 @@ python3 src/validate_velocity.py               # Stage-5 velocity validation
 
 ## Running on real NASA data
 
-1. Configure Earthdata credentials **once** (never hard-coded):
+This is exactly the pipeline that produced the real-data results above.
+
+1. Credentials (never hard-coded). In this cloud environment an
+   `EARTHDATA_TOKEN` is injected and `earthaccess` picks it up automatically:
    ```bash
-   python3 -c "import earthaccess; earthaccess.login(persist=True)"   # writes ~/.netrc
-   # or: export EARTHDATA_USERNAME=... EARTHDATA_PASSWORD=...
+   python3 -c "import earthaccess; print(earthaccess.login(strategy='environment').authenticated)"
+   # locally instead: python3 -c "import earthaccess; earthaccess.login(persist=True)"  # ~/.netrc
    ```
-2. Preflight and smoke test:
+2. Smoke test (≤3 granules, inspect first):
    ```bash
-   python3 src/check_access.py
-   python3 src/build_dataset.py --smoke               # ≤3 granules, inspect first
+   python3 src/build_dataset.py --smoke               # real SSH, 3 granules
    ```
-3. Build the experiment dataset and run the identical pipeline:
+3. Build the real datasets and run the full real-data pipeline:
    ```bash
-   python3 src/build_dataset.py --products ssh oscar --start 2015-01-01 --stop 2016-06-30
-   python3 src/analysis.py  --ssh data_processed/nasa_ssh.nc
-   python3 src/pinn_ssh.py  --ssh data_processed/nasa_ssh.nc \
-                            --oscar data_processed/nasa_oscar.nc --tag nasa
-   python3 src/validate_velocity.py --pinn data_processed/pinn_nasa_inferred.nc \
-                                    --oscar data_processed/nasa_oscar.nc
+   python3 src/build_dataset.py --products ssh --start 2015-01-01 --stop 2016-06-30
+   python3 src/build_oscar_weekly.py --start 2015-01-01 --stop 2016-06-30 --every 7
+   python3 src/analysis.py     --ssh data_processed/nasa_ssh.nc        # maps, Hovmöller, slant-stack
+   python3 src/komega.py       --ssh data_processed/nasa_ssh.nc        # k–ω spectrum + dispersion
+   python3 src/pinn_nasa.py    --ssh data_processed/nasa_ssh.nc \
+                               --oscar data_processed/nasa_oscar.nc --tag nasa
+   python3 src/validate_nasa.py                                        # velocity figs + speed table
    ```
 
-If your environment also blocks NASA hosts, see the note in
-`src/check_access.py`; the environment's **Network access** setting must allow
-`*.earthdata.nasa.gov` (and the PO.DAAC/S3 data hosts).
+Real-data specifics handled by `pinn_nasa.py` (vs the synthetic `pinn_ssh.py`):
+the per-pixel temporal mean is removed so the network fits the *propagating*
+SSHA anomaly; entire time snapshots are **held out** for an honest SSH test; and
+velocity is scored against OSCAR **anomalies** (total and geostrophic
+separately), since the PINN reconstructs anomalous — not mean — currents.
+
+If an environment blocks NASA hosts, `src/check_access.py` reports it without
+hanging; the **Network access** setting must allow `*.earthdata.nasa.gov` and
+the PO.DAAC data hosts, and `EARTHDATA_TOKEN` (or `~/.netrc`) must be set.
 
 ---
 
@@ -168,12 +221,16 @@ src/
   config.py            region, dates, constants, product short names, scales
   physics.py           PINN model, PDE residuals, analytic Kelvin/Matsuno waves
   data_access.py       earthaccess search/download helpers (real data)
-  build_dataset.py     Stage 2 real-data assembler + manifest  (needs NASA access)
+  build_dataset.py     Stage 2 real SSH assembler + manifest  (ran: nasa_ssh.nc)
+  build_oscar_weekly.py cost-controlled weekly OSCAR subset   (ran: nasa_oscar.nc)
   check_access.py      non-hanging NASA access preflight
   make_surrogate.py    OSSE surrogate generator (SYNTHETIC, known truth)
-  analysis.py          Stage 3: Hovmöller + conventional propagation speed
-  pinn_ssh.py          Stage 4/5: SSH-only PINN + velocity validation
-  validate_velocity.py Stage 5 figures
+  analysis.py          Hovmöller + conventional slant-stack speed (real & synthetic)
+  komega.py            wavenumber-frequency spectrum + equatorial dispersion overlays
+  pinn_ssh.py          SSH-only PINN on the SYNTHETIC surrogate
+  pinn_nasa.py         SSH-only PINN on REAL NASA SSHA (held-out test + OSCAR compare)
+  validate_velocity.py Stage-5 figures (synthetic)
+  validate_nasa.py     real-data velocity figures + wave-speed comparison table
   write_surrogate_manifest.py
 tests/
   equatorial_kelvin_pinn_test.py   given reference (math + synthetic inverse)

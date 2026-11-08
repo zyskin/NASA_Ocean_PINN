@@ -142,7 +142,7 @@ def xcorr_speed(hov):
     return slope, lags, dists
 
 
-def plot_maps(da, outdir):
+def plot_maps(da, outdir, label="SYNTHETIC OSSE surrogate", prefix=""):
     times = da.time.values
     idx = [0, len(times) // 3, 2 * len(times) // 3, len(times) - 1]
     fig, axes = plt.subplots(2, 2, figsize=(12, 7), sharex=True, sharey=True)
@@ -153,23 +153,27 @@ def plot_maps(da, outdir):
                                   add_colorbar=False)
         ax.set_title(str(np.datetime_as_string(times[i], unit="D")))
     fig.colorbar(im, ax=axes, label="SSHA [m]", shrink=0.8)
-    fig.suptitle("SSHA snapshots (SYNTHETIC OSSE surrogate)")
-    fig.savefig(outdir / "ssha_maps.png", dpi=150, bbox_inches="tight")
+    fig.suptitle(f"SSHA snapshots ({label})")
+    fig.savefig(outdir / f"{prefix}ssha_maps.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
-def plot_hovmoller(hov, outdir):
+def plot_hovmoller(hov, outdir, label="SYNTHETIC OSSE surrogate", prefix=""):
     fig, ax = plt.subplots(figsize=(8, 7))
-    vmax = float(np.nanpercentile(np.abs(hov.values), 99))
-    hov.plot(ax=ax, x="longitude", y="time", vmin=-vmax, vmax=vmax,
-             cmap="RdBu_r", cbar_kwargs={"label": "SSHA [m]"})
-    ax.set_title("Equatorial (2S-2N) SSHA Hovmoller\n(SYNTHETIC OSSE surrogate)")
+    # Hovmoller of the anomaly about the per-longitude time-mean highlights
+    # propagating signals (removes the stationary mean SSH pattern).
+    hov_anom = hov - hov.mean("time")
+    vmax = float(np.nanpercentile(np.abs(hov_anom.values), 99))
+    hov_anom.plot(ax=ax, x="longitude", y="time", vmin=-vmax, vmax=vmax,
+                  cmap="RdBu_r", cbar_kwargs={"label": "SSHA anomaly [m]"})
+    ax.set_title(f"Equatorial (2S-2N) SSHA Hovmoller\n({label})")
     ax.set_xlabel("Longitude [deg E]")
-    fig.savefig(outdir / "hovmoller_equatorial.png", dpi=150, bbox_inches="tight")
+    fig.savefig(outdir / f"{prefix}hovmoller_equatorial.png", dpi=150,
+                bbox_inches="tight")
     plt.close(fig)
 
 
-def plot_speed_spectrum(speeds, energy, c_east, c_west, outdir):
+def plot_speed_spectrum(speeds, energy, c_east, c_west, outdir, prefix=""):
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.plot(speeds, energy, "k-")
     ax.axvline(c_east, color="r", ls="--", label=f"east peak {c_east:+.2f} m/s")
@@ -179,7 +183,7 @@ def plot_speed_spectrum(speeds, energy, c_east, c_west, outdir):
     ax.set_ylabel("normalised stack energy")
     ax.set_title("Slant-stack velocity spectrum (conventional, non-neural)")
     ax.legend()
-    fig.savefig(outdir / "speed_spectrum.png", dpi=150, bbox_inches="tight")
+    fig.savefig(outdir / f"{prefix}speed_spectrum.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -190,7 +194,14 @@ def main():
     args = ap.parse_args()
 
     ds, da = load_ssh(args.ssh, args.var)
+    is_synth = bool(ds.attrs.get("synthetic", 1))
+    if is_synth:
+        label, prefix, csvname = "SYNTHETIC OSSE surrogate", "", "propagation_speed_estimates.csv"
+    else:
+        src = ds.attrs.get("source_product", "NASA")
+        label, prefix, csvname = f"REAL NASA DATA: {src}", "nasa_", "nasa_propagation_speeds.csv"
     print(f"Loaded {args.ssh}")
+    print(f"  data category: {'SYNTHETIC' if is_synth else 'REAL NASA'}  ({label})")
     print(f"  dims={dict(da.sizes)}  var={args.var}  units={da.attrs.get('units','?')}")
     print(f"  lon {float(da.longitude.min()):.2f}..{float(da.longitude.max()):.2f}  "
           f"lat {float(da.latitude.min()):.2f}..{float(da.latitude.max()):.2f}")
@@ -200,11 +211,11 @@ def main():
 
     hov = equatorial_hovmoller(da)
 
-    plot_maps(da, C.FIGURES)
-    plot_hovmoller(hov, C.FIGURES)
+    plot_maps(da, C.FIGURES, label=label, prefix=prefix)
+    plot_hovmoller(hov, C.FIGURES, label=label, prefix=prefix)
 
     speeds, energy, c_east, c_west = slant_stack_speed(hov)
-    plot_speed_spectrum(speeds, energy, c_east, c_west, C.FIGURES)
+    plot_speed_spectrum(speeds, energy, c_east, c_west, C.FIGURES, prefix=prefix)
     c_xc, lags, dists = xcorr_speed(hov)
 
     print("\nConventional propagation-speed estimates (non-neural baseline):")
@@ -218,14 +229,13 @@ def main():
         print(f"\n  [surrogate truth c = {ct} m/s eastward Kelvin; "
               f"Rossby westward ~ -{float(ct)/3:.2f} m/s]")
 
-    with open(C.LOGS / "propagation_speed_estimates.csv", "w", newline="") as f:
+    with open(C.LOGS / csvname, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["method", "speed_m_per_s", "equivalent_depth_m", "note"])
-        w.writerow(["slant_stack_east", c_east, c_east**2 / C.G, "eastward Kelvin"])
-        w.writerow(["slant_stack_west", c_west, "", "westward Rossby"])
+        w.writerow(["slant_stack_east", c_east, c_east**2 / C.G, "eastward (Kelvin-like)"])
+        w.writerow(["slant_stack_west", c_west, "", "westward (Rossby-like)"])
         w.writerow(["xcorr_dominant", c_xc, "", "dominant signal"])
-    print(f"\nSaved figures to {C.FIGURES} and speeds to "
-          f"{C.LOGS/'propagation_speed_estimates.csv'}")
+    print(f"\nSaved figures to {C.FIGURES} and speeds to {C.LOGS/csvname}")
 
 
 if __name__ == "__main__":

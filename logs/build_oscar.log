@@ -1,0 +1,321 @@
+[oscar] OSCAR_L4_OC_FINAL_V2.0: 547 granules in 2015-01-01..2016-06-30 over (-170.0, -8.0, -100.0, 8.0)
+OSCAR: 547 daily granules -> 79 subsampled (~every 7 d)
+[oscar] downloading 79 granule(s) -> /home/user/NASA_Ocean_PINN/data_raw/oscar
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lon' to 'longitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+/home/user/NASA_Ocean_PINN/src/build_oscar_weekly.py:80: UserWarning: rename 'lat' to 'latitude' does not create an index anymore. Try using swap_dims instead or use set_index after rename to create an indexed coordinate.
+  d = d.rename(ren) if ren else d
+Saved /home/user/NASA_Ocean_PINN/data_processed/nasa_oscar.nc  dims={'time': 79, 'latitude': 65, 'longitude': 281} vars=['u', 'v', 'ug', 'vg']
+  time 2015-01-01 .. 2016-06-30

@@ -1,0 +1,53 @@
+device = cpu
+data category: REAL NASA (NASA_SSH_REF_SIMPLE_GRID_V1)
+window 2014-12-29 .. 2016-07-04  n_time=80
+held-out snapshots: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75]  (15/80 times withheld from SSH data loss)
+SSH points: train 291200  held-out 67200  eta_anom range [-0.274,0.241] m
+scales: phi=1.687 u=0.675 L=3.305e+05 RU=5.11e-06 RPHI=1.28e-05
+Fourier features fx=8 fy=6 ft=48; params=20868
+
+Adam (SSH observations only):
+    0 tot=3.04e-01 SSH=2.52e-01 pde=(1.8e-02,3.3e-02,7.1e-04) vel=2.3e-06 c=1.4970
+  500 tot=1.59e-02 SSH=1.11e-02 pde=(1.3e-03,2.4e-03,1.2e-03) vel=7.2e-06 c=1.4527
+ 1000 tot=1.29e-02 SSH=9.03e-03 pde=(1.2e-03,1.7e-03,9.3e-04) vel=8.0e-06 c=1.2815
+ 1500 tot=1.08e-02 SSH=7.48e-03 pde=(1.2e-03,1.2e-03,8.2e-04) vel=8.8e-06 c=1.1991
+ 2000 tot=9.85e-03 SSH=6.79e-03 pde=(1.2e-03,1.1e-03,7.8e-04) vel=9.1e-06 c=1.1274
+ 2500 tot=9.78e-03 SSH=6.70e-03 pde=(1.2e-03,1.1e-03,7.4e-04) vel=9.5e-06 c=1.0554
+ 3000 tot=9.11e-03 SSH=6.11e-03 pde=(1.1e-03,1.2e-03,7.2e-04) vel=9.2e-06 c=1.0064
+ 3500 tot=8.24e-03 SSH=5.59e-03 pde=(1.1e-03,8.2e-04,7.2e-04) vel=9.8e-06 c=0.9726
+ 4000 tot=7.93e-03 SSH=5.37e-03 pde=(1.1e-03,7.8e-04,7.1e-04) vel=9.8e-06 c=0.9409
+ 4500 tot=9.05e-03 SSH=5.44e-03 pde=(1.1e-03,1.8e-03,7.0e-04) vel=1.0e-05 c=0.9220
+ 5000 tot=7.39e-03 SSH=4.95e-03 pde=(1.0e-03,7.3e-04,6.9e-04) vel=1.0e-05 c=0.8994
+ 5500 tot=7.18e-03 SSH=4.78e-03 pde=(9.9e-04,7.1e-04,6.9e-04) vel=1.0e-05 c=0.8826
+ 6000 tot=7.18e-03 SSH=4.64e-03 pde=(9.8e-04,8.6e-04,6.9e-04) vel=1.0e-05 c=0.8669
+Adam elapsed 601.2s
+
+L-BFGS refinement:
+L-BFGS calls=311 elapsed 33.1s c=0.8344
+
+==============================================================
+INFERRED EFFECTIVE PARAMETERS (real NASA SSHA)
+  c (effective)     = 0.8344 m/s
+  equiv depth h_e   = 0.0710 m   (h_e = c^2/g)
+
+in-sample SSHA : RMSE=0.0135 MAE=0.0102 corr=0.988 m
+HELD-OUT SSHA  : RMSE=0.0212 MAE=0.0165 corr=0.971 m   (field RMS=0.0877; skill=+0.76)
+
+PINN velocity vs OSCAR TOTAL_ANOM (independent):
+  u: RMSE=0.1778 MAE=0.1302 corr=0.781 m/s
+  v: RMSE=0.1258 MAE=0.0924 corr=0.077 m/s
+  speed RMSE=0.1608 m/s  dir MAE=42.7 deg
+
+PINN velocity vs OSCAR GEOSTROPHIC_ANOM (independent):
+  u: RMSE=0.1556 MAE=0.1136 corr=0.841 m/s
+  v: RMSE=0.1187 MAE=0.0850 corr=0.187 m/s
+  speed RMSE=0.1493 m/s  dir MAE=35.6 deg
+
+PINN velocity vs OSCAR TOTAL_FULL (independent):
+  u: RMSE=0.2788 MAE=0.2281 corr=0.650 m/s
+  v: RMSE=0.1354 MAE=0.1019 corr=0.077 m/s
+  speed RMSE=0.2478 m/s  dir MAE=57.5 deg
+
+Saved inferred fields -> /home/user/NASA_Ocean_PINN/data_processed/pinn_nasa_inferred.nc
+Saved summary -> /home/user/NASA_Ocean_PINN/logs/pinn_nasa_summary.csv
+==============================================================
