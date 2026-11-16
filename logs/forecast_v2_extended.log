@@ -1,0 +1,22 @@
+extended cube: 201 dates 2023-01-02..2026-11-02 (has_wind=False)
+valid forecast starts: 194
+
+EXTENDED (201-date, no-wind) increment pattern corr:
+ lead_days  ssh_inc_corr  uv_inc_corr  n_windows
+         7       0.38262     0.358521        194
+        14       0.40850     0.409648        194
+
+EXTENDED chronological skill vs persistence (block-bootstrap 95% CI):
+field  lead_days    model   n  mean_skill  median_skill  wins  frac_wins   ci95_lo  ci95_hi  significant
+  ssh          7  raw_pde 182   -0.023601     -0.024411    77   0.423077 -0.050577 0.002890        False
+  ssh          7  cal_pde 182    0.061816      0.064474   155   0.851648  0.048587 0.076008         True
+  ssh          7 tendency 182    0.007808      0.008381   118   0.648352  0.003377 0.012417         True
+  ssh          7   hybrid 182    0.120337      0.123283   174   0.956044  0.104245 0.136131         True
+   uv          7  cal_pde 182    0.056965      0.056021   159   0.873626  0.045848 0.069128         True
+   uv          7   hybrid 182    0.093520      0.094077   170   0.934066  0.077147 0.110333         True
+  ssh         14  raw_pde 182    0.048228      0.043778   125   0.686813  0.018864 0.075773         True
+  ssh         14  cal_pde 182    0.068778      0.065910   148   0.813187  0.048707 0.090202         True
+  ssh         14 tendency 182   -0.000482     -0.000385    85   0.467033 -0.002095 0.001181        False
+  ssh         14   hybrid 182    0.122694      0.131854   168   0.923077  0.103114 0.143130         True
+   uv         14  cal_pde 182    0.078353      0.079467   162   0.890110  0.063302 0.094723         True
+   uv         14   hybrid 182    0.093612      0.090226   174   0.956044  0.080014 0.108728         True

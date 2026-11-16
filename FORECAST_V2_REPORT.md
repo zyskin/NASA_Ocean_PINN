@@ -8,25 +8,28 @@ reproducible information about the future SSH / current increment beyond the
 last observed state?* We answer it with strictly chronological out-of-sample
 validation.
 
-**Short answer.** Yes, with important caveats.
-- The **raw dynamical model overshoots and is worse than persistence** at α=1 —
-  which is exactly why the previous tuning fled to a near-persistence optimum
-  (c=1 m/s, large wind depth, strong damping).
-- But the **PDE-predicted increment carries a reproducible pattern** of the true
-  future change (pooled pattern correlation ≈ 0.28 at 7 d and **0.36 at 14 d**
-  for SSH, **0.39** for currents) once the model is allowed real dynamics
+**Short answer. Yes — demonstrated on a 3.8-year, regime-diverse record with
+strictly chronological validation and no oracle wind.**
+- The **raw dynamical model overshoots** (α≈1 is ~2–3× too much amplitude), so
+  on a short/quiet record it can look worse than persistence — exactly why the
+  previous tuning fled to a near-persistence optimum (c=1 m/s, large wind depth,
+  strong damping). That optimum *suppressed the very signal the dynamics carry.*
+- The **PDE-predicted increment carries a reproducible pattern** of the true
+  future change — pooled pattern correlation **≈0.4 at 14 days for both SSH and
+  currents** on the extended record — once real dynamics are admitted
   (background window N_bg ≥ 2, realistic wave speed c ≈ 2.45 m/s).
-- After **chronological amplitude calibration** (learn a shrinkage coefficient
-  from past windows only), the calibrated-PDE and a PDE+tendency **hybrid beat
-  persistence out-of-sample**: current skill is **statistically significant at
-  both leads** (+0.06–0.07, 95% CI above 0); SSH skill is significant at 7 days
-  and **positive but not significant at the clean 14-day lead** (+0.061, 95% CI
-  [−0.003, 0.127]) on the 45-date record.
-- The hybrid **beats a pure recent-tendency baseline**, so the dynamics add
-  information beyond temporal extrapolation.
-- The limiting factor is **statistical power / data length and product
-  smoothing**, not the advection scheme (second-order MUSCL ≈ first-order
-  upwind) — motivating the historical extension (Section 9).
+- After a one-coefficient **chronological amplitude calibration** (fit on past
+  windows only), the calibrated-PDE and a PDE+tendency **hybrid beat persistence
+  out-of-sample with significance at both leads**. On the **201-date** record
+  (182 chronological starts, **no wind**) the clean **14-day SSH** hybrid skill
+  is **+0.123, 95% CI [0.103, 0.143]** (92% of windows beat persistence);
+  current skill **+0.094 [0.080, 0.109]**.
+- The hybrid **crushes a pure recent-tendency baseline** (≈0 at 14 d), so the
+  gain is **dynamical**, not temporal extrapolation.
+- On the **45-date** cube the clean 14-day SSH gain was only +0.061 and **not**
+  significant — a **statistical-power artefact** of the short, quiescent record
+  (confirmed by the extension). The advection scheme is *not* limiting
+  (second-order MUSCL ≈ first-order upwind).
 
 ---
 
@@ -170,11 +173,55 @@ and lead times; we keep upwind as the stable default and report MUSCL parity.
 Motivation: 45 weeks give too few independent samples to resolve the 14-day SSH
 question. `NASA_SSH_REF_SIMPLE_GRID_V11` extends to **1992-10-21** (weekly) and
 OSCAR FINAL to 1993; GEOS-FP (wind) only to ~2017, so the extension is run
-**without wind**. We rebuilt an SSH+OSCAR cube **2023-01 → 2026-10** (OSCAR
-FINAL for dates ≤2026-01-17 else INTERIM; transition recorded per time step) and
-repeated the increment diagnostic + chronological calibration.
+**without wind**. We rebuilt an SSH+OSCAR cube **2023-01-02 → 2026-11-02** (`ssh_oscar_weekly_ext.nc`,
+**201 weekly dates**; OSCAR FINAL for dates ≤2026-01-17 else INTERIM, transition
+recorded per time step in `oscar_product`) and repeated the increment diagnostic
++ chronological calibration with **no wind forcing** (pure ocean dynamics;
+`scripts/forecast_v2_extended_analysis.py`, `extended_model_comparison.csv`).
+This spans the strong **2023-24 El Niño** and **2024-25 La Niña** — far more
+regime diversity than the 45-week cube.
 
-> **[RESULTS TO BE FILLED IN AFTER THE EXTENDED CUBE FINISHES BUILDING.]**
+**The result is decisive (182 chronological out-of-sample starts).** Every
+calibrated/hybrid skill is now statistically significant, and the clean 14-day
+SSH gain — borderline on 45 weeks — is large and significant on the long record:
+
+PDE-increment pattern correlation (no wind): SSH +0.383 (7 d), **+0.408 (14 d)**;
+currents +0.359 (7 d), +0.410 (14 d).
+
+SSH skill vs persistence (95% block-bootstrap CI):
+
+| lead | raw PDE (α=1) | calibrated PDE | tendency | **hybrid** |
+|---|---|---|---|---|
+| 7 d | −0.024 (n.s.) | +0.062 [0.049,0.076] ✓ | +0.008 ✓ | **+0.120 [0.104,0.136] ✓ (96% wins)** |
+| 14 d (clean) | +0.048 [0.019,0.076] ✓ | +0.069 [0.049,0.090] ✓ | −0.000 (n.s.) | **+0.123 [0.103,0.143] ✓ (92% wins)** |
+
+Current (vector) skill: calibrated/hybrid +0.057…+0.094, all 95% CIs above zero
+at both leads.
+
+**Interpretation.**
+- The borderline 14-day SSH result on 45 weeks was a **statistical-power
+  artefact**: with 4× the data and more regimes the same clean metric becomes
+  **+0.123 [0.103, 0.143]** — unambiguously significant and *larger*.
+- The hybrid (+0.12) crushes **pure tendency (≈0 at 14 d)**, so the gain is
+  **dynamical**, not temporal extrapolation.
+- This is the **no-wind (Experiment A)** result, so it does **not** rely on
+  oracle winds — it is a genuine ocean-state forecast (initial OSCAR state is
+  available at t₀). On the long, regime-diverse record even the **raw**
+  dynamics beat persistence at 14 days.
+- Predictability is **regime-dependent**: the quiescent 2025-26 window (the
+  45-date cube) was less predictable than the 2023-25 ENSO-active years, which
+  is why the short record understated the dynamical skill.
+
+Figure `figures/forecast_v2/fig7_extended_power.png` shows the 45→201-date
+power/significance gain.
+
+**Bottom line on the central question:** on a 3.8-year, regime-diverse NASA
+SSH+OSCAR record with strictly chronological validation, physically-informed
+ocean dynamics carry **reproducible, statistically significant** information
+about the future SSH and surface-current increment beyond both persistence and a
+recent-tendency baseline, at 7- and 14-day leads, **without** oracle wind —
+after a simple chronological amplitude calibration that fixes the raw model's
+~2–3× over-amplitude.
 
 ## 10. Models tested (summary) and negative results
 
@@ -195,8 +242,11 @@ block-bootstrap 95% CIs — all in `data_processed/forecast_v2/*.csv`.
 
 ## 12. Remaining limitations
 
-1. **Record length / independence.** ~6 effectively independent forecast
-   opportunities in 45 weeks; the clean 14-day SSH gain is not yet significant.
+1. **Record length / independence (addressed).** 45 weeks gave too few
+   independent samples (clean 14-day SSH not significant); the 201-week
+   extension resolves this and makes the dynamical skill significant. Longer
+   still (V1.1 reaches 1992, OSCAR FINAL to 1993) would enable per-year
+   train/validation/test splits and season/regime stratification.
 2. **Product smoothing & 7-day leakage.** 10-day composites inflate persistence
    and contaminate the 7-day lead.
 3. **Oracle winds.** Wind benefit is not available to a causal forecast.
@@ -212,8 +262,12 @@ python3 scripts/forecast_v2_increment_diagnostic.py   # primary diagnostic
 python3 scripts/forecast_v2_calibration.py            # chronological calibration
 python3 scripts/forecast_v2_significance.py           # bootstrap CIs, regional, velocity
 python3 scripts/forecast_v2_physics_tests.py          # MUSCL, no-wind, geostrophic
-python3 scripts/build_extended_cube.py                # historical SSH+OSCAR (no wind)
-python3 scripts/forecast_v2_figures.py                # figures
+python3 scripts/build_extended_cube.py                # historical SSH+OSCAR 2023-26 (no wind)
+python3 scripts/forecast_v2_extended_analysis.py      # extended chronological analysis
+python3 scripts/forecast_v2_figures.py                # figures 1-6
+python3 scripts/forecast_v2_fig_extended.py           # figure 7 (power gain)
 ```
 
-Outputs: `data_processed/forecast_v2/*.csv`, `figures/forecast_v2/fig1..6*.png`.
+Outputs: `data_processed/forecast_v2/*.csv` (+ `ssh_oscar_weekly_ext.nc`),
+`figures/forecast_v2/fig1..7*.png`. The reproducible PDE-forecast cache
+`data_processed/forecast_v2/_pde_cache/` is git-ignored.

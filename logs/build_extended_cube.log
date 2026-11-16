@@ -1,0 +1,14 @@
+searching SSH granules...
+SSH weekly granules: 201  2023-01-02 .. 2026-11-02
+  [20/201] 2023-05-15 ok (FINAL)
+  [40/201] 2023-10-02 ok (FINAL)
+  [60/201] 2024-02-19 ok (FINAL)
+  [80/201] 2024-07-08 ok (FINAL)
+  [100/201] 2024-11-25 ok (FINAL)
+  [120/201] 2025-04-14 ok (FINAL)
+  [140/201] 2025-09-01 ok (FINAL)
+  [160/201] 2026-01-19 ok (INTERIM)
+  [180/201] 2026-06-08 ok (INTERIM)
+  [200/201] 2026-10-26 ok (INTERIM)
+matched dates: 201
+SAVED data_processed/forecast_v2/ssh_oscar_weekly_ext.nc n_time 201
