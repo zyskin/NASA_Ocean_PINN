@@ -1,0 +1,22 @@
+item,finding,source,implication
+SSH_collection,NASA_SSH_REF_SIMPLE_GRID_V11 (Version 1.1),CMR: only V1.1 has 2026 granules; V1 ends earlier,use V1.1 for any extension
+SSH_filename_pattern,NASA-SSH_alt_ref_simple_grid_v1_1_YYYYMMDD.nc,CMR granule RelatedUrls,nominal date = window center
+SSH_variable,ssha [m],cube + product,sea-surface height anomaly
+SSH_native_grid,"0.5 deg global, weekly (7d nominal spacing)",product docs / granules,matches cube grid
+SSH_temporal_support,each weekly map = 10-day composite (nominal +/- 5 d),CMR RangeDateTime span=10.0 d,maps are temporally low-pass smoothed
+LEAKAGE_7day,"init window [t0-5,t0+5] overlaps 7-day target window [t0+2,t0+12] by ~3 days",window arithmetic,7-day verification shares altimeter obs with init; NOT clean
+LEAKAGE_14day,"init window [t0-5,t0+5] vs 14-day target [t0+9,t0+19]: no overlap (4-day gap)",window arithmetic,14-day lead is the clean horizon
+SSH_history_available,V1.1 spans 1992-10-21 to present; ~1776 weekly granules over tropical-Pacific bbox,CMR search,record CAN be extended ~34 years
+OSCAR_collection,OSCAR_L4_OC_NRT_V2.0 (near-real-time),build_ssh_oscar_weekly_cube.py,FINAL/INTERIM preferable for historical periods
+OSCAR_vars,"u,v (total), ug,vg (geostrophic) [m/s]",cube,"OSCAR is analyzed, not independent of SSH/wind"
+OSCAR_native,"0.25 deg daily; sampled on SSH nominal dates, interp to 0.5 deg",build script,sub-weekly current variability discarded
+OSCAR_independence,NOT an independent current measurement (uses SSH gradients+wind+SST),product docs,"velocity verification is state-estimate agreement, not independent truth"
+WIND_source,"NASA GEOS-FP tavg1_2d_slv_Nx (u10m,v10m,slp)",add_geos_wind_to_weekly_cube.py,analyzed winds; GEOS-FP from ~2017
+WIND_temporal_storage,daily-mean on each weekly ocean date; stress computed hourly-then-averaged; forecast interpolates between weekly maps,add_geos_wind script,sub-weekly forcing variability discarded
+WIND_causality,GEOS-FP analysis for t>t0 is future info; current setup = ORACLE forcing hindcast,analysis,"a true causal forecast needs forecast winds, not analysis"
+cube_dates,"45 weekly, 2025-12-24 .. 2026-10-28",cube,short record
+cube_domain_build,"lon -170..-90, lat -12..12, 0.5 deg",build script,"cropped to -170..-100,-10..10 for forecasts"
+serial_dep_lag1_7d,SSHA anomaly map-to-map pattern corr = 0.931,local computation,persistence extremely strong at 7 d
+serial_dep_lag2_14d,SSHA anomaly pattern corr = 0.850,local computation,persistence strong at 14 d too
+serial_dep_increment,weekly-increment lag-1 pattern corr = 0.105,local computation,increments nearly white; tendency baseline weak
+effective_samples,lag1 rho=0.931 -> very few independent forecast opportunities in 45 weeks,local computation,0.2-2% RMSE differences not statistically resolvable; need longer record
