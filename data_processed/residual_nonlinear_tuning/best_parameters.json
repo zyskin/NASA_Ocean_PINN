@@ -1,0 +1,9 @@
+{
+  "background_nobs": 1,
+  "c_m_s": 1.0,
+  "Hwind_m": 150.0,
+  "damping_days": 10.0,
+  "nu_m2_s": 1000.0,
+  "dt_seconds": 1800.0,
+  "training_objective": 0.9916356307960875
+}

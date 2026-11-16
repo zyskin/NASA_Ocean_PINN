@@ -1,0 +1,9 @@
+{
+  "c_m_s": 1.5,
+  "Hwind_m": 60.0,
+  "damping_days": 20.0,
+  "nu_m2_s": 1000.0,
+  "assimilation_weeks": 1,
+  "nudge_eta_days": 1.5,
+  "nudge_uv_days": 1.5
+}
